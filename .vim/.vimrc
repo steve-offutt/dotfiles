@@ -18,12 +18,11 @@ let g:Powerline_stl_path_style = 'short'
 let g:Powerline_dividers_override = ['>>', '>', '<<', '<']
 let g:Powerline_colorscheme = 'solarized256'
 
-" Solarized colorsheme without the sea of cyan
-let g:solarized_termcolors=256
+" Zenburn colorsheme
 syntax enable 
 set background=dark
 set t_Co=256
-colorscheme solarized
+colorscheme zenburn 
 
 set nowrap " Do not wrap text
 set expandtab " Insert spaces instead of tabs

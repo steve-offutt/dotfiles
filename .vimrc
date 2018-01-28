@@ -18,12 +18,11 @@ let g:Powerline_stl_path_style = 'short'
 let g:Powerline_dividers_override = ['>>', '>', '<<', '<']
 let g:Powerline_colorscheme = 'solarized256'
 
-" Solarized colorsheme without the sea of cyan
-let g:solarized_termcolors=256
+" Zenburn colorsheme
 syntax enable 
-set t_Co=256
-colorscheme solarized
 set background=dark
+set t_Co=256
+colorscheme zenburn 
 
 set nowrap " Do not wrap text
 set expandtab " Insert spaces instead of tabs
@@ -38,16 +37,12 @@ set cursorcolumn " highlights current column
 set number " always show the line nubmers
 set relativenumber " relative line numbering.
 set textwidth=80 " Fix the column width to 80 characters
-set noswapfile " Turn of the swap file
-hi Comment ctermfg=green
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key bindings
 nnoremap <F2> :NERDTreeToggle<CR> " Map F2 to toggle NERDTree
 nnoremap <C-Left> :tabprevious<CR> " Ctrl + left arrow moves to left tab
-nnoremap <C-h> :tabprevious<CR> " Ctrl + h moves to the left tab
 nnoremap <C-Right> :tabnext<CR> " Ctrl + right arrow moves to right tab
-nnoremap <C-l> :tabprevious<CR> " Ctrl + l moves to the right tab
 nnoremap <C-n> :call NumberToggle()<cr> " Ctrl + n calls NumberToggle() to toggle relative lines
 " Window resizing mappings /*{{{*/
 nnoremap <S-k> :normal <c-r>=Resize('+')<CR><CR>
