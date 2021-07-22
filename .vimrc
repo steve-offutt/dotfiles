@@ -1,9 +1,13 @@
-" I use pathogen. Or does pathogen use me? So deep...
-execute pathogen#infect() 
+execute pathogen#infect()
 autocmd FileType make setlocal noexpandtab " Make file will be forced to have tabs
                                            " ^^ Doesn't make sense because vim
                                            " understands makefiles... Not broke,
                                            " don't fix...
+" If you don't have nodejs and yarn use pre build, add 'vim-plug' to the filetype list so vim-plug can update
+" this plugin
+" see: https://github.com/iamcco/markdown-preview.nvim/issues/50
+" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 filetype plugin indent on
 " Powerline stuff
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
@@ -18,11 +22,16 @@ let g:Powerline_stl_path_style = 'short'
 let g:Powerline_dividers_override = ['>>', '>', '<<', '<']
 let g:Powerline_colorscheme = 'solarized256'
 
+set noswapfile
+
+" turn off preview
+set completeopt-=preview
+
 " Zenburn colorsheme
-syntax enable 
+syntax enable
 set background=dark
 set t_Co=256
-colorscheme zenburn 
+colorscheme zenburn
 
 set nowrap " Do not wrap text
 set expandtab " Insert spaces instead of tabs
@@ -37,6 +46,21 @@ set cursorcolumn " highlights current column
 set number " always show the line nubmers
 set relativenumber " relative line numbering.
 set textwidth=80 " Fix the column width to 80 characters
+let NERDTreeShowHidden=1 " Show hidden files in NERDTree
+
+" Go specific settings
+" Auto formatting and importing
+filetype plugin indent on
+set autowrite
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
+au filetype go inoremap <buffer> . .<C-x><C-o>
+" Go syntax highlighting
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key bindings
@@ -54,7 +78,7 @@ nnoremap <S-l> :normal <c-r>=Resize('>')<CR><CR>
 " Functions
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Function: NumberToggle
-" Function to toggle relative line numbering. 
+" Function to toggle relative line numbering.
 " function stolen from:
 " http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
 " Slightly modified because their example didn't do what I wanted.
@@ -111,4 +135,4 @@ function! Resize(dir)
     return ""
   endif
 endfunction
-"/*}}}*/ 
+"/*}}}*/
