@@ -10,6 +10,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'fatih/vim-go'
+Plugin 'buoto/gotests-vim'
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
