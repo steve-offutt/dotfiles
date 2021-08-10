@@ -1,26 +1,18 @@
-execute pathogen#infect()
-autocmd FileType make setlocal noexpandtab " Make file will be forced to have tabs
-                                           " ^^ Doesn't make sense because vim
-                                           " understands makefiles... Not broke,
-                                           " don't fix...
-" If you don't have nodejs and yarn use pre build, add 'vim-plug' to the filetype list so vim-plug can update
-" this plugin
-" see: https://github.com/iamcco/markdown-preview.nvim/issues/50
-" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-filetype plugin indent on
-" Powerline stuff
-set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
-set nocompatible   " Disable vi-compatibility
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
-" Always show statusline
-set laststatus=2
-let g:Powerline_symbols = 'unicode'
-let g:Powerline_theme = 'default'
-let g:Powerline_stl_path_style = 'short'
-let g:Powerline_dividers_override = ['>>', '>', '<<', '<']
-let g:Powerline_colorscheme = 'solarized256'
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'scrooloose/nerdtree'
+Plugin 'fatih/vim-go'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 set noswapfile
 
@@ -50,11 +42,9 @@ let NERDTreeShowHidden=1 " Show hidden files in NERDTree
 
 " Go specific settings
 " Auto formatting and importing
-filetype plugin indent on
 set autowrite
 let g:go_fmt_autosave = 1
 let g:go_fmt_command = "goimports"
-au filetype go inoremap <buffer> . .<C-x><C-o>
 " Go syntax highlighting
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
