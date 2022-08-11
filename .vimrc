@@ -11,22 +11,31 @@ Plugin 'ycm-core/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'fatih/vim-go'
 Plugin 'buoto/gotests-vim'
+Plugin 'sainnhe/everforest'
 
 
 call vundle#end()            " required
 filetype plugin indent on    " required
-
 set noswapfile
 
 " turn off preview
 set completeopt-=preview
-
-" Zenburn colorsheme
-syntax enable
+if has('termguicolors')
+  set termguicolors
+endif
 set background=dark
-set t_Co=256
-colorscheme zenburn
 
+" This configuration option should be placed before `colorscheme everforest`.
+" Available values: 'hard', 'medium'(default), 'soft'
+let g:everforest_background = 'medium'
+" For better performance
+let g:everforest_better_performance = 1
+
+colorscheme everforest
+syntax enable
+
+set mouse=a
+set backspace=indent,eol,start
 set nowrap " Do not wrap text
 set expandtab " Insert spaces instead of tabs
 set tabstop=4 " Set the number of spaces to 4
@@ -61,10 +70,10 @@ nnoremap <C-Left> :tabprevious<CR> " Ctrl + left arrow moves to left tab
 nnoremap <C-Right> :tabnext<CR> " Ctrl + right arrow moves to right tab
 nnoremap <C-n> :call NumberToggle()<cr> " Ctrl + n calls NumberToggle() to toggle relative lines
 " Window resizing mappings /*{{{*/
-nnoremap <S-k> :normal <c-r>=Resize('+')<CR><CR>
-nnoremap <S-j> :normal <c-r>=Resize('-')<CR><CR>
-nnoremap <S-h> :normal <c-r>=Resize('<')<CR><CR>
-nnoremap <S-l> :normal <c-r>=Resize('>')<CR><CR>
+" nnoremap <S-k> :normal <c-r>=Resize('+')<CR><CR>
+" nnoremap <S-j> :normal <c-r>=Resize('-')<CR><CR>
+" nnoremap <S-h> :normal <c-r>=Resize('<')<CR><CR>
+" nnoremap <S-l> :normal <c-r>=Resize('>')<CR><CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
