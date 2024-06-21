@@ -1,5 +1,8 @@
 # My dotfiles
 
-This is a repo to store all of my environment config files.
-
-Make sure you run ```git submodule update --init``` after cloning!
+```
+sudo apt install stow
+git clone git@github.com:steve-offutt/dotfiles.git $HOME/dotfiles
+cd $HOME/dotfiles
+stow .
+```
