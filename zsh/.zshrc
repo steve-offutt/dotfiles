@@ -108,3 +108,4 @@ source <(kubectl completion zsh)
 # Set the kubectl completion code for zsh[1] to autoload on startup
 kubectl completion zsh > "${fpath[1]}/_kubectl"
 alias k=kubectl
+export PATH=$PATH:/usr/local/go/bin
