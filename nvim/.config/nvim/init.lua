@@ -81,6 +81,16 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagn
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
+vim.keymap.set('n', '<leader>pv', ':Vex<CR>', { desc = "Open NetRW directory explorer" })
+vim.keymap.set('v', '<leader>p', '"_dP', { desc = "yank to void register" })
+vim.keymap.set('v', '<leader>y', '"+y', { desc = "yank to system clipboard" })
+
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = "move line down" })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = "move line up" })
+
+ -- Source neovim config
+vim.keymap.set('n', '<leader><CR>', ':so ~/.config/nvim/init.lua', { desc = "Source neovim config" })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
