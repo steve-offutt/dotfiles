@@ -109,3 +109,19 @@ source <(kubectl completion zsh)
 kubectl completion zsh > "${fpath[1]}/_kubectl"
 alias k=kubectl
 export PATH=$PATH:/usr/local/go/bin
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/steve/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/steve/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/steve/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/steve/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
