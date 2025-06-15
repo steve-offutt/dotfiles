@@ -17,6 +17,9 @@ curl -L https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86
 sudo rm -rf /opt/nvim
 sudo tar -C /opt -xzf /tmp/nvim-linux-x86_64.tar.gz
 
+# install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+
 # check if kubectl exists. install if not
 if ! command -v kubectl &> /dev/null
 then
