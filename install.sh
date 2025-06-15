@@ -12,6 +12,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 cp $HOME/.dotfiles/oh-my-zsh-themes/frontcube-ubuntu.zsh-theme $HOME/.oh-my-zsh/themes/
 rm $HOME/.zshrc
 
+# install neovim
+curl -L https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz -o /tmp/nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim
+sudo tar -C /opt -xzf /tmp/nvim-linux-x86_64.tar.gz
+
 # check if kubectl exists. install if not
 if ! command -v kubectl &> /dev/null
 then
