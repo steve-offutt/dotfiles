@@ -2,10 +2,15 @@
 #
 
 # install apps
-packages=(vim git build-essential stow tree curl ca-certificates tmux neovim python3-virtualenv ripgrep)
+packages=(zsh vim git build-essential stow tree curl ca-certificates tmux neovim python3-virtualenv ripgrep)
 sudo apt update
 echo "sudo apt install -y $packages"
 sudo apt install -y "${packages[@]}"
+
+# oh-my-zsh setup
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+cp $HOME/.dotfiles/oh-my-zsh-themes/frontcube-ubuntu.zsh-theme $HOME/.oh-my-zsh/themes/
+rm $HOME/.zshrc
 
 # check if kubectl exists. install if not
 if ! command -v kubectl &> /dev/null
