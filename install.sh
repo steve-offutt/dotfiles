@@ -25,3 +25,6 @@ echo "Installing kubectl"
 echo "Installing golang"
 ./pkgs/golang.sh
 
+# install nerd-font
+echo "Installing nerd-font"
+./pkgs/nerd-font.sh

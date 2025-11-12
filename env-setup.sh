@@ -39,6 +39,14 @@ update_files() {
 }
 
 copy() {
+	# check if the destination directory exists
+	d=$(dirname $2)
+	if [[ ! -d "$d" ]]; then
+		log "creating: $d"
+		if [[ $dry_run == "0" ]]; then
+			mkdir -p $d
+		fi
+	fi
     log "removing: $2"
     if [[ $dry_run == "0" ]]; then
         rm $2
@@ -54,6 +62,8 @@ update_files env/.config $HOME/.config
 copy zsh/.zshrc $HOME/.zshrc
 copy tmux/.tmux.conf $HOME/.tmux.conf
 copy oh-my-zsh-themes/frontcube-ubuntu.zsh-theme $HOME/.oh-my-zsh/themes/frontcube-ubuntu.zsh-theme
+copy alacritty/.alacritty.toml $HOME/.config/alacritty/alacritty.toml
+
 
 ## link configs
 #if [[ -z $STOW_FOLDERS ]]; then
