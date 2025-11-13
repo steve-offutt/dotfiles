@@ -28,3 +28,11 @@ echo "Installing golang"
 # install nerd-font
 echo "Installing nerd-font"
 ./pkgs/nerd-font.sh
+
+# install npm
+echo "Installing npm"
+./pkgs/npm.sh
+
+# install docker
+echo "Installing docker"
+./pkgs/docker.sh
