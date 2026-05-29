@@ -15,6 +15,6 @@ sudo apt-get update
 
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-sudo groupadd docker
+getent group docker || sudo groupadd docker
 sudo usermod -aG docker $USER
-newgrp docker
+echo "Please log out and log back in for docker group changes to take effect."
