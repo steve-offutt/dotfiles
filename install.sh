@@ -36,3 +36,7 @@ echo "Installing npm"
 # install docker
 echo "Installing docker"
 ./pkgs/docker.sh
+
+# configure keyboard
+echo "Configuring keyboard"
+./pkgs/keyboard.sh
